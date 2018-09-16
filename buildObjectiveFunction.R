@@ -47,7 +47,7 @@ buildObjectiveFunction <- function(A, X, Y, l1 = 0.02, l2 = 0.02, l3= 0.02){
         # compute products TxG and RxF
         TG <- mul.tensor(T,i=sumT,G,j=sumT)
         RF <- mul.tensor(R,i=sumR,F,j=sumR)
-        res <- ( norm(A - SRUT)^2
+        res <- ( 1/2 * norm(A - SRUT)^2
                  + l1/2 * norm(X - TG)^2
                  + l2/2 * norm(Y - RF)^2
                  + l3/2 * (norm(S)^2
